@@ -1,0 +1,8 @@
+.Toolbar {
+  display: flex;
+  background-color: tomato;
+}
+
+.Logo {
+  height: 35px;
+}
