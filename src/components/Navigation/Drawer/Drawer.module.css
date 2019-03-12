@@ -1,0 +1,16 @@
+.Content {
+  position: fixed;
+  width: 200px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: tomato;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .3);
+  z-index: 2;
+}
+
+.Logo {
+  padding: 30px;
+  box-sizing: border-box;
+}

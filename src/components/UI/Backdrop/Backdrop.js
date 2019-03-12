@@ -1,11 +1,10 @@
 import React from 'react';
+import classes from './Backdrop.module.css';
 import './Backdrop.module.css';
 
 function Backdrop(props) {
   return (
-    <div className='Backdrop'>
-      Backdrop
-    </div>
+    <div className={classes.Backdrop}></div>
   );
 }
 
