@@ -1,8 +1,21 @@
 .Toolbar {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: tomato;
+  padding: 0 15px;
 }
 
 .Logo {
-  height: 35px;
+  height: 40px;
+}
+
+.NavItems {
+  display: none;
+}
+
+@media (min-width: 500px) {
+  .NavItems {
+    display: block;
+  }
 }

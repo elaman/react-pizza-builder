@@ -1,11 +1,13 @@
 import React from 'react';
-import './NavItems.module.css';
+import classes from './NavItems.module.css';
+import NavItem from './NavItem/NavItem';
 
 function NavItems(props) {
   return (
-    <div className='NavItems'>
-      NavItems
-    </div>
+    <ul className={classes.NavItems}>
+      <NavItem url="/">Pizza Builder</NavItem>
+      <NavItem url="/">Checkout</NavItem>
+    </ul>
   );
 }
 

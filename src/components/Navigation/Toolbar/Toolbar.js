@@ -12,7 +12,9 @@ function Toolbar(props) {
       </div>
       <DrawerToggle
         toggleHandler={props.toggleDrawerHandler} />
-      <NavItems />
+      <div className={classes.NavItems}>
+        <NavItems />
+      </div>
     </div>
   );
 }
