@@ -4,7 +4,7 @@ import PizzaControl from './PizzaControl/PizzaControl';
 
 function PizzaControls(props) {
   return (
-    <div className={classes.PizzaControls}>
+    <div class={classes.PizzaControls}>
     </div>
   );
 }

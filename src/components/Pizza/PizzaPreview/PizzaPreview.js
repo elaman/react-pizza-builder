@@ -14,7 +14,7 @@ function PizzaPreview(props) {
     });
 
   return (
-    <div className={classes.PizzaPreview}>
+    <div class={classes.PizzaPreview}>
       {ingredients}
       <img src={cheeseSvg} alt="Pizza" />
     </div>

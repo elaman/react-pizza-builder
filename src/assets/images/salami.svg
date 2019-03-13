@@ -1,0 +1,58 @@
+  <svg class="Salami" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37">
+  <style>
+
+.svg5 {
+  fill: #79251b;
+}
+.svg6 {
+  fill: #aa4b58;
+}
+.svg7 {
+  fill: #fff;
+  stroke: #78261d;
+  stroke-miterlimit: 10;
+}
+</style>
+    <ellipse class="svg5" cx="18.32" cy="18.12" rx="18.32" ry="18.12"></ellipse>
+    <path class="svg6" d="M132.54,99.36a1.35,1.35,0,0,1,2.48-.75,16.68,16.68,0,0,0,2.12-17,2.26,2.26,0,1,1-2.37-3.86,16.69,16.69,0,0,0-16.89-5.63,1.2,1.2,0,1,1-2.16.72s0,0,0,0a16.74,16.74,0,0,0-8.8,8.07.9.9,0,0,1-.72,1.65,16.7,16.7,0,0,0,5.41,19,1.87,1.87,0,0,1,3.18,2,16.68,16.68,0,0,0,18.45-2.93A1.35,1.35,0,0,1,132.54,99.36Z" transform="translate(-103.46 -70.18)"></path>
+    <path class="svg7" d="M135,98.61a1.35,1.35,0,1,0-1.76,1.93A16.78,16.78,0,0,0,135,98.61Z" transform="translate(-103.46 -70.18)"></path>
+    <path class="svg7" d="M133.62,79.74a2.26,2.26,0,0,0,3.51,1.89,16.69,16.69,0,0,0-2.37-3.86A2.26,2.26,0,0,0,133.62,79.74Z" transform="translate(-103.46 -70.18)"></path>
+    <path class="svg7" d="M113.15,100.71a1.87,1.87,0,0,0-1.54.81,16.68,16.68,0,0,0,3.18,2,1.87,1.87,0,0,0-1.64-2.76Z" transform="translate(-103.46 -70.18)"></path>
+    <path class="svg7" d="M107.46,81.72a.9.9,0,0,0-.54-.82,16.58,16.58,0,0,0-.72,1.65.9.9,0,0,0,1.26-.83Z" transform="translate(-103.46 -70.18)"></path>
+    <path class="svg7" d="M116.92,74.06a1.2,1.2,0,0,0,1-1.92,16.55,16.55,0,0,0-2.15.69s0,0,0,0A1.2,1.2,0,0,0,116.92,74.06Z" transform="translate(-103.46 -70.18)"></path>
+    <ellipse class="svg7" cx="13.03" cy="8.68" rx="1.86" ry="2.2"></ellipse>
+    <ellipse class="svg7" cx="20.87" cy="12.63" rx="1.52" ry="1.76"></ellipse>
+    <circle class="svg7" cx="28.53" cy="18.44" r="1.62"></circle>
+    <circle class="svg7" cx="27.48" cy="13.18" r="0.96"></circle>
+    <circle class="svg7" cx="21.34" cy="4.76" r="1.99"></circle>
+    <circle class="svg7" cx="7.18" cy="16.15" r="2.01"></circle>
+    <ellipse class="svg7" cx="10.13" cy="25.43" rx="2.13" ry="1.93"></ellipse>
+    <circle class="svg7" cx="17.25" cy="30.53" r="1.49"></circle>
+    <ellipse class="svg7" cx="24.14" cy="27.41" rx="1.76" ry="1.98"></ellipse>
+    <circle class="svg7" cx="16.68" cy="20.09" r="2.4"></circle>
+    <circle class="svg7" cx="23.28" cy="21.9" r="0.9"></circle>
+    <circle class="svg7" cx="30.55" cy="23.53" r="0.73"></circle>
+    <circle class="svg7" cx="16.27" cy="25.9" r="0.98"></circle>
+    <circle class="svg7" cx="5.38" cy="21.9" r="0.9"></circle>
+    <circle class="svg7" cx="11.97" cy="15.2" r="1.06"></circle>
+    <circle class="svg7" cx="7.05" cy="8.94" r="0.77"></circle>
+    <circle class="svg7" cx="26.18" cy="7.58" r="1.1"></circle>
+    <circle class="svg7" cx="33.55" cy="17.4" r="1.13"></circle>
+    <circle class="svg5" cx="20.56" cy="17.98" r="1.82"></circle>
+    <circle class="svg5" cx="18.35" cy="7.01" r="1.67"></circle>
+    <circle class="svg5" cx="24.68" cy="10.47" r="1.35"></circle>
+    <circle class="svg5" cx="27.7" cy="24.61" r="2.12"></circle>
+    <circle class="svg5" cx="23.21" cy="32.4" r="1.87"></circle>
+    <circle class="svg5" cx="5.27" cy="26.17" r="1.91"></circle>
+    <circle class="svg5" cx="1.59" cy="17.97" r="1.15"></circle>
+    <circle class="svg5" cx="9.27" cy="11.36" r="1.27"></circle>
+    <circle class="svg5" cx="9.72" cy="6.34" r="1.57"></circle>
+    <ellipse class="svg5" cx="31.96" cy="14.72" rx="1.59" ry="1.54"></ellipse>
+    <circle class="svg5" cx="33.75" cy="23.23" r="1.33"></circle>
+    <circle class="svg5" cx="14.61" cy="33.97" r="1.16"></circle>
+    <circle class="svg5" cx="20.31" cy="25.5" r="1.23"></circle>
+    <circle class="svg5" cx="12.2" cy="19.35" r="1.65"></circle>
+    <circle class="svg5" cx="15.67" cy="12.75" r="1.39"></circle>
+    <circle class="svg5" cx="6.17" cy="11.48" r="1.01"></circle>
+    <circle class="svg5" cx="26.19" cy="3.83" r="1.51"></circle>
+  </svg>

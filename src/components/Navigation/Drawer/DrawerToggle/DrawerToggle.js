@@ -4,7 +4,7 @@ import classes from './DrawerToggle.module.css';
 function DrawerToggle(props) {
   return (
     <button
-      className={classes.DrawerToggle}
+      class={classes.DrawerToggle}
       onClick={props.toggleHandler}>
       <div></div>
       <div></div>

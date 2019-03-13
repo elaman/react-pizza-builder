@@ -3,7 +3,7 @@ import classes from './PizzaControl.module.css';
 
 function PizzaControl(props) {
   return (
-    <div className={classes.PizzaControl}>
+    <div class={classes.PizzaControl}>
       Test
     </div>
   );

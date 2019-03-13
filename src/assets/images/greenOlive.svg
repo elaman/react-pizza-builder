@@ -1,0 +1,17 @@
+  <svg class="GreenOlive" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
+  <style>
+
+.svg1, .svg2 {
+  fill: none;
+  stroke-width: 9px;
+}
+.svg1 {
+  stroke: #556B2F;
+}
+.svg2 {
+  stroke: #808000;
+}
+</style>
+    <ellipse class="svg1" cx="26.72" cy="28.69" rx="21.72" ry="20.35"></ellipse>
+    <ellipse class="svg2" cx="26.72" cy="25.35" rx="21.72" ry="20.35"></ellipse>
+  </svg>

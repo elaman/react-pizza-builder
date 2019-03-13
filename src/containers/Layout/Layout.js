@@ -16,7 +16,7 @@ class Layout extends Component {
 
   render() {
     return (
-      <div className={classes.Layout}>
+      <div class={classes.Layout}>
         <Toolbar
           toggleDrawerHandler={this.toggleDrawerHandler} />
         <Drawer

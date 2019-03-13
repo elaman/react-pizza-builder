@@ -3,7 +3,7 @@ import classes from './NavItem.module.css';
 
 function NavItem(props) {
   return (
-    <li className={classes.NavItem}>
+    <li class={classes.NavItem}>
       <a href={props.url}>{props.children}</a>
     </li>
   );

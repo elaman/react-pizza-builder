@@ -7,7 +7,7 @@ function Logo(props) {
     <img
       src={logo}
       alt="Pizza Builder"
-      className={classes.Logo} />
+      class={classes.Logo} />
   );
 }
 

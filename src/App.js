@@ -6,7 +6,7 @@ import PizzaBuilder from './containers/PizzaBuilder/PizzaBuilder';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div class="App">
         <Layout>
           <PizzaBuilder />
         </Layout>
