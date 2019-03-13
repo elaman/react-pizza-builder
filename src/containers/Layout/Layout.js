@@ -1,15 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
+import classes from './Layout.module.css';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import Drawer from '../../components/Navigation/Drawer/Drawer';
 
-function Layout(props) {
-  return (
-    <div className='Layout'>
-      <Toolbar />
-      <Drawer />
-      {props.children}
-    </div>
-  );
+class Layout extends Component {
+  state = {
+    drawerOpen: false
+  }
+
+  toggleDrawerHandler = () => {
+    this.setState({
+      drawerOpen: !this.state.drawerOpen
+    });
+  }
+
+  render() {
+    return (
+      <div className={classes.Layout}>
+        <Toolbar
+          toggleDrawerHandler={this.toggleDrawerHandler} />
+        <Drawer
+          open={this.state.drawerOpen}
+          toggleDrawerHandler={this.toggleDrawerHandler}
+          />
+        {this.props.children}
+      </div>
+    );
+  }
 }
 
 export default Layout;

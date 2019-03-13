@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Toolbar.module.css';
 import Logo from '../../UI/Logo/Logo';
 import NavItems from '../../Navigation/NavItems/NavItems';
+import DrawerToggle from '../Drawer/DrawerToggle/DrawerToggle';
 
 function Toolbar(props) {
   return (
@@ -9,6 +10,8 @@ function Toolbar(props) {
       <div className={classes.Logo}>
         <Logo />
       </div>
+      <DrawerToggle
+        toggleHandler={props.toggleDrawerHandler} />
       <NavItems />
     </div>
   );

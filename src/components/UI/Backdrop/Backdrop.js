@@ -1,10 +1,16 @@
 import React from 'react';
 import classes from './Backdrop.module.css';
-import './Backdrop.module.css';
 
 function Backdrop(props) {
+  const backdropClasses = [
+    classes.Backdrop,
+    props.open ? classes.Open : classes.Closed,
+  ].join(' ');
+
   return (
-    <div className={classes.Backdrop}></div>
+    <div
+      className={backdropClasses}
+      onClick={props.toggleHandler}></div>
   );
 }
 

@@ -8,3 +8,11 @@
   background-color: rgba(0, 0, 0, .6);
   z-index: 1;
 }
+
+.Open {
+  transform: translateX(0);
+}
+
+.Closed {
+  transform: translateX(-100%);
+}
