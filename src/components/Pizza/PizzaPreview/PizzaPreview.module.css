@@ -1,0 +1,12 @@
+.PizzaPreview {
+  width: 300px;
+  height: 300px;
+
+  position: relative;
+
+  background-color: rgb(252, 192, 103);
+  margin: 30px auto;
+  padding: 10px;
+  border-radius: 100%;
+  box-sizing: border-box;
+}
