@@ -5,6 +5,7 @@ import PizzaControl from './PizzaControl/PizzaControl';
 function PizzaControls(props) {
   return (
     <div class={classes.PizzaControls}>
+      <PizzaControl ingredient="salami" moreHandler={props.moreHandler} />
     </div>
   );
 }
