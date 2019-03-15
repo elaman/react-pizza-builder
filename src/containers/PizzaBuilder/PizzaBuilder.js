@@ -6,11 +6,12 @@ class PizzaBuilder extends Component {
   state = {
     ingredients: {
       tomato: 2,
-      salami: 2,
+      salami: 0,
       blackOlive: 2,
       greenOlive: 2,
       redPepper: 2,
-      yellowPepper: 2
+      yellowPepper: 2,
+      meat: 2
     }
   }
 

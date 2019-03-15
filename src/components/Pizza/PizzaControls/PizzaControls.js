@@ -8,6 +8,7 @@ function PizzaControls(props) {
     .map(ingredient => {
       return <PizzaControl
         ingredient={ingredient}
+        ingredients={props.ingredients}
         lessHandler={props.lessHandler}
         moreHandler={props.moreHandler} />;
     });

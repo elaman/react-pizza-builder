@@ -58,8 +58,8 @@ function PizzaIngredient(props) {
         }}
         src={yellowPepperSvg}
         alt="Yellow Pepper" />;
-    default:
-      return;
+    default:      
+      return null;
   }
 }
 
