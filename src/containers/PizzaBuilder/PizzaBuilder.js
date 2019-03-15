@@ -14,6 +14,16 @@ class PizzaBuilder extends Component {
     }
   }
 
+  lessHandler = (ingredient) => {
+    const ingredients = {...this.state.ingredients};
+    
+    if (ingredients[ingredient]) {
+      ingredients[ingredient]--;
+    }
+
+    this.setState({ ingredients: ingredients });
+  }
+
   moreHandler = (ingredient) => {
     const ingredients = {...this.state.ingredients};
     ingredients[ingredient]++; 
@@ -27,7 +37,9 @@ class PizzaBuilder extends Component {
         <PizzaPreview
           ingredients={this.state.ingredients} />
         <PizzaControls
-          moreHandler={this.moreHandler} />
+          ingredients={this.state.ingredients}
+          moreHandler={this.moreHandler}
+          lessHandler={this.lessHandler} />
       </div>
     );
   }

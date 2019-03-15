@@ -11,7 +11,8 @@ function PizzaControl(props) {
         onClick={() => props.moreHandler(props.ingredient)}>
         More
       </button>
-      <button>Less</button>
+      <button
+        onClick={() => props.lessHandler(props.ingredient)}>Less</button>
     </div>
   );
 }
