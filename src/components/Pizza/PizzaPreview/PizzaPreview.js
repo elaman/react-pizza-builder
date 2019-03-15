@@ -14,9 +14,12 @@ function PizzaPreview(props) {
     });
 
   return (
-    <div class={classes.PizzaPreview}>
+    <div className={classes.PizzaPreview}>
+      <img
+        className={classes.PizzaCheese}
+        src={cheeseSvg}
+        alt="Pizza" />
       {ingredients}
-      <img src={cheeseSvg} alt="Pizza" />
     </div>
   );
 }
