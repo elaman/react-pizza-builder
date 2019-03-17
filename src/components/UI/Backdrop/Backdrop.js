@@ -9,7 +9,7 @@ function Backdrop(props) {
 
   return (
     <div
-      class={backdropClasses}
+      className={backdropClasses}
       onClick={props.toggleHandler}></div>
   );
 }

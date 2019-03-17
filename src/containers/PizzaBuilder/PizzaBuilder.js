@@ -34,7 +34,7 @@ class PizzaBuilder extends Component {
 
   render() {
     return (
-      <div class='PizzaBuilder'>
+      <div className='PizzaBuilder'>
         <PizzaPreview
           ingredients={this.state.ingredients} />
         <PizzaControls

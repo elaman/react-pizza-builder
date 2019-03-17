@@ -11,12 +11,12 @@ function Drawer(props) {
   ].join(' ');
 
   return (
-    <div class={classes.Drawer}>
+    <div className={classes.Drawer}>
       <Backdrop
         open={props.open}
         toggleHandler={props.toggleDrawerHandler} />
-      <div class={contentClasses}>
-        <div class={classes.Logo}>
+      <div className={contentClasses}>
+        <div className={classes.Logo}>
           <Logo />
         </div>
         <NavItems />

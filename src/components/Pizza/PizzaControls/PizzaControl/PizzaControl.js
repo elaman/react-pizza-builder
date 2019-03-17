@@ -5,7 +5,7 @@ import PizzaIngredient from '../../PizzaPreview/PizzaIngredient/PizzaIngredient'
 
 function PizzaControl(props) {
   return (
-    <div class={classes.PizzaControl}>
+    <div className={classes.PizzaControl}>
       <PizzaIngredient type={props.ingredient} />
       <button
         disabled={props.ingredients[props.ingredient] >= 20}

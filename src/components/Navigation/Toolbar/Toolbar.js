@@ -6,13 +6,13 @@ import DrawerToggle from '../Drawer/DrawerToggle/DrawerToggle';
 
 function Toolbar(props) {
   return (
-    <div class={classes.Toolbar}>
-      <div class={classes.Logo}>
+    <div className={classes.Toolbar}>
+      <div className={classes.Logo}>
         <Logo />
       </div>
       <DrawerToggle
         toggleHandler={props.toggleDrawerHandler} />
-      <div class={classes.NavItems}>
+      <div className={classes.NavItems}>
         <NavItems />
       </div>
     </div>

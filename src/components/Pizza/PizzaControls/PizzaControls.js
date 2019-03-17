@@ -7,6 +7,7 @@ function PizzaControls(props) {
     .keys(props.ingredients)
     .map(ingredient => {
       return <PizzaControl
+        key={ingredient}
         ingredient={ingredient}
         ingredients={props.ingredients}
         lessHandler={props.lessHandler}
@@ -14,7 +15,7 @@ function PizzaControls(props) {
     });
 
   return (
-    <div class={classes.PizzaControls}>
+    <div className={classes.PizzaControls}>
       {ingredients}
     </div>
   );
