@@ -8,10 +8,10 @@ function PizzaControl(props) {
     <div className={classes.PizzaControl}>
       <PizzaIngredient type={props.ingredient} />
       <button
-        disabled={props.ingredients[props.ingredient] >= 20}
+        disabled={props.count >= 20}
         onClick={() => props.moreHandler(props.ingredient)}>More</button>
       <button
-        disabled={!props.ingredients[props.ingredient]}
+        disabled={!props.count}
         onClick={() => props.lessHandler(props.ingredient)}>Less</button>
     </div>
   );

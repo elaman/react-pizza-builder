@@ -9,7 +9,7 @@ function PizzaControls(props) {
       return <PizzaControl
         key={ingredient}
         ingredient={ingredient}
-        ingredients={props.ingredients}
+        count={props.ingredients[ingredient]}
         lessHandler={props.lessHandler}
         moreHandler={props.moreHandler} />;
     });
