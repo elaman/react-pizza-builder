@@ -7,60 +7,40 @@ import blackOliveSvg from '../../../../assets/images/blackOlive.svg';
 import greenOliveSvg from '../../../../assets/images/greenOlive.svg';
 import redPepperSvg from '../../../../assets/images/redPepper.svg';
 import yellowPepperSvg from '../../../../assets/images/yellowPepper.svg';
+import unknownSvg from '../../../../assets/images/unknown.svg';
 
 function PizzaIngredient(props) {
+  let ingredient = null;
+
   switch(props.type) {
     case 'tomato':
-      return <img
-        style={{
-          width: '35px', height: '35px',
-          position: 'relative',
-        }}
-        src={tomatoSvg}
-        alt="Tomato" />;
+      ingredient = { width: 35, height: 35, src: tomatoSvg };
+      break;
     case 'salami':
-      return <img
-        style={{
-          width: '30px', height: '30px',
-          position: 'relative',
-        }}
-        src={salamiSvg}
-        alt="Salami" />;
+      ingredient = { width: 30, height: 30, src: salamiSvg };
+      break;
     case 'blackOlive':
-      return <img
-        style={{
-          width: '10px', height: '10px',
-          position: 'relative',
-        }}
-        src={blackOliveSvg}
-        alt="Black Olive" />;
+      ingredient = { width: 10, height: 10, src: blackOliveSvg
+      };
+      break;
     case 'greenOlive':
-      return <img
-        style={{
-          width: '10px', height: '10px',
-          position: 'relative',
-        }}
-        src={greenOliveSvg}
-        alt="Green Olive" />;
+      ingredient = { width: 10, height: 10, src: greenOliveSvg };
+      break;
     case 'redPepper':
-      return <img
-          style={{
-            width: '20px', height: '20px',
-            position: 'relative',
-          }}
-          src={redPepperSvg}
-          alt="Red Pepper" />;
+      ingredient = { width: 20, height: 20, src: redPepperSvg };
+      break;
     case 'yellowPepper':
-      return <img
-        style={{
-          width: '40px', height: '40px',
-          position: 'relative',
-        }}
-        src={yellowPepperSvg}
-        alt="Yellow Pepper" />;
-    default:      
-      return null;
+      ingredient = { width: 40, height: 40, src: yellowPepperSvg };
+      break;
+    default:
+      ingredient = { width: 10, height: 10, src: unknownSvg };    
+      break;
   }
+
+  return <img
+        {...ingredient}
+        className={classes.PizzaIngredient}
+        alt={props.type} />;
 }
 
 export default PizzaIngredient;
