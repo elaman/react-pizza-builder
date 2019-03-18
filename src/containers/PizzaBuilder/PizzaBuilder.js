@@ -2,40 +2,58 @@ import React, { Component } from 'react';
 import PizzaPreview from '../../components/Pizza/PizzaPreview/PizzaPreview';
 import PizzaControls from '../../components/Pizza/PizzaControls/PizzaControls';
 
+const INGREDIENT_PRICES = {
+  tomato: 5,
+  salami: 5,
+  blackOlive: 2,
+  greenOlive: 2,
+  redPepper: 3,
+  yellowPepper: 3,
+  meat: 6,
+};
+
 class PizzaBuilder extends Component {
   state = {
     ingredients: {
-      tomato: 2,
+      tomato: 0,
       salami: 0,
-      blackOlive: 2,
-      greenOlive: 2,
-      redPepper: 2,
-      yellowPepper: 2,
-      meat: 2
-    }
+      blackOlive: 0,
+      greenOlive: 0,
+      redPepper: 0,
+      yellowPepper: 0,
+      meat: 0,
+    },
+    price: 200
   }
 
   lessHandler = (ingredient) => {
     const ingredients = {...this.state.ingredients};
+    let price = this.state.price;
     
     if (ingredients[ingredient]) {
       ingredients[ingredient]--;
+      price -= INGREDIENT_PRICES[ingredient];
     }
 
-    this.setState({ ingredients: ingredients });
+    this.setState({ ingredients, price });
   }
 
   moreHandler = (ingredient) => {
     const ingredients = {...this.state.ingredients};
-    ingredients[ingredient]++; 
+    let price = this.state.price;
 
-    this.setState({ ingredients: ingredients });
+    ingredients[ingredient]++;
+    // price = price + INGREDIENT_PRICES[ingredient];
+    price += INGREDIENT_PRICES[ingredient];
+
+    this.setState({ ingredients, price });
   }
 
   render() {
     return (
       <div className='PizzaBuilder'>
         <PizzaPreview
+          price={this.state.price}
           ingredients={this.state.ingredients} />
         <PizzaControls
           ingredients={this.state.ingredients}
