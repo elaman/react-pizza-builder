@@ -37,10 +37,18 @@ function PizzaIngredient(props) {
       break;
   }
 
+  if (props.randomPosition) {
+    ingredient.style = {
+      position: 'absolute',
+      top: Math.round(Math.random() * 270) + 'px',
+      left: Math.round(Math.random() * 270) + 'px'
+    }
+  }
+
   return <img
-        {...ingredient}
-        className={classes.PizzaIngredient}
-        alt={props.type} />;
+    {...ingredient}
+    className={classes.PizzaIngredient}
+    alt={props.type} />;
 }
 
 export default PizzaIngredient;

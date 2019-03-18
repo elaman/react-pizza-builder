@@ -9,7 +9,10 @@ function PizzaPreview(props) {
     .keys(props.ingredients)
     .map(ingredient => {
       return [...Array(props.ingredients[ingredient])].map((_, i) => {
-        return <PizzaIngredient key={ingredient + i} type={ingredient} />;
+        return <PizzaIngredient
+          key={ingredient + i}
+          type={ingredient}
+          randomPosition />;
       });
     });
 
@@ -20,7 +23,9 @@ function PizzaPreview(props) {
           className={classes.PizzaCheese}
           src={cheeseSvg}
           alt="Pizza" />
-        {ingredients}
+        <div className={classes.PizzaIngredients}>
+          {ingredients}
+        </div>
       </div>
       <div className={classes.PizzaPrice}>
         {props.price}
