@@ -9,7 +9,6 @@ const INGREDIENT_PRICES = {
   greenOlive: 2,
   redPepper: 3,
   yellowPepper: 3,
-  meat: 6,
 };
 
 class PizzaBuilder extends Component {
@@ -21,7 +20,6 @@ class PizzaBuilder extends Component {
       greenOlive: 0,
       redPepper: 0,
       yellowPepper: 0,
-      meat: 0,
     },
     price: 200
   }
