@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PizzaPreview from '../../components/Pizza/PizzaPreview/PizzaPreview';
 import PizzaControls from '../../components/Pizza/PizzaControls/PizzaControls';
 
+import classes from './PizzaBuilder.module.css';
+
 const INGREDIENT_PRICES = {
   tomato: 5,
   salami: 5,
@@ -49,7 +51,7 @@ class PizzaBuilder extends Component {
 
   render() {
     return (
-      <div className='PizzaBuilder'>
+      <div className={classes.PizzaBuilder}>
         <PizzaPreview
           price={this.state.price}
           ingredients={this.state.ingredients} />

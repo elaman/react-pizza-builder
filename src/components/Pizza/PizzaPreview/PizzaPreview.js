@@ -28,7 +28,7 @@ function PizzaPreview(props) {
         </div>
       </div>
       <div className={classes.PizzaPrice}>
-        {props.price}
+        {props.price} som
       </div>
     </div>
   );

@@ -1,0 +1,10 @@
+.PizzaBuilder {
+  display: flex;
+  flex-flow: column;
+}
+
+@media (min-width: 500px) {
+  .PizzaBuilder {
+    flex-flow: row;
+  }
+}

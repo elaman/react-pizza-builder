@@ -1,0 +1,9 @@
+.PizzaControls {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  background-color: #B21724;
+  border-radius: 10px;
+  justify-content: center;
+}

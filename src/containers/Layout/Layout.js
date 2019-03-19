@@ -23,7 +23,9 @@ class Layout extends Component {
           open={this.state.drawerOpen}
           toggleDrawerHandler={this.toggleDrawerHandler}
           />
-        {this.props.children}
+        <div className={classes.Content}>
+          {this.props.children}
+        </div>
       </div>
     );
   }
