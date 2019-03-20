@@ -1,0 +1,20 @@
+.Modal {
+  width: 400px;
+  height: 200px;
+  position: fixed;
+  top: calc(50vh - 150px);
+  left: calc(50vw - 200px);
+
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, .8);
+  z-index: 100;
+}
+
+.Open {
+  transform: translateY(0);
+}
+
+.Closed {
+  transform: translateY(-100vh);
+}

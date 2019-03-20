@@ -3,6 +3,8 @@ import PizzaPreview from '../../components/Pizza/PizzaPreview/PizzaPreview';
 import PizzaControls from '../../components/Pizza/PizzaControls/PizzaControls';
 
 import classes from './PizzaBuilder.module.css';
+import Modal from '../../components/UI/Modal/Modal';
+import PizzaOrder from '../../components/Pizza/PizzaOrder/PizzaOrder';
 
 const INGREDIENT_PRICES = {
   tomato: 5,
@@ -23,7 +25,14 @@ class PizzaBuilder extends Component {
       redPepper: 0,
       yellowPepper: 0,
     },
-    price: 200
+    price: 200,
+    ordering: false,
+  }
+
+  orderingToggleHandler = () => {
+    this.setState({
+      ordering: !this.state.ordering
+    });
   }
 
   lessHandler = (ingredient) => {
@@ -58,7 +67,18 @@ class PizzaBuilder extends Component {
         <PizzaControls
           ingredients={this.state.ingredients}
           moreHandler={this.moreHandler}
-          lessHandler={this.lessHandler} />
+          lessHandler={this.lessHandler}
+          orderingToggleHandler={this.orderingToggleHandler} />
+
+        <Modal
+          open={this.state.ordering}
+          toggleHandler={this.orderingToggleHandler}>
+          <PizzaOrder
+            ingredients={this.state.ingredients}
+            price={this.state.price}
+            checkoutHandler={this.orderingToggleHandler}
+            cancelHandler={this.orderingToggleHandler} />
+        </Modal>
       </div>
     );
   }

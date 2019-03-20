@@ -3,3 +3,10 @@
   padding: 20px;
   box-sizing: border-box;
 }
+
+@media (min-width: 500px) {
+  .Content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}

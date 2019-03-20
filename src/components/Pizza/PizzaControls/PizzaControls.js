@@ -17,6 +17,9 @@ function PizzaControls(props) {
   return (
     <div className={classes.PizzaControls}>
       {ingredients}
+      <div className={classes.PizzaOrder}>
+        <button onClick={props.orderingToggleHandler}>Order</button>
+      </div>
     </div>
   );
 }

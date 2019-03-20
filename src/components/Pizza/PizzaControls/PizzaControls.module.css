@@ -7,3 +7,22 @@
   border-radius: 10px;
   justify-content: center;
 }
+
+.PizzaOrder {
+  width: 100%;
+  text-align: center;
+}
+.PizzaOrder button {
+  background: #facd30;
+  color: #B21724;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: none;
+}
+.PizzaOrder button:hover {
+  opacity: .8;
+  color: white;
+}
