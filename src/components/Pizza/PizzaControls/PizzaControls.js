@@ -14,11 +14,17 @@ function PizzaControls(props) {
         moreHandler={props.moreHandler} />;
     });
 
+  const ingredientCount = Object
+    .values(props.ingredients)
+    .reduce((a, b) => a + b);
+
   return (
     <div className={classes.PizzaControls}>
       {ingredients}
       <div className={classes.PizzaOrder}>
-        <button onClick={props.orderingToggleHandler}>Order</button>
+        <button
+          disabled={!ingredientCount}
+          onClick={props.orderingToggleHandler}>Order</button>
       </div>
     </div>
   );

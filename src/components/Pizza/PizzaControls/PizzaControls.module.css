@@ -26,3 +26,7 @@
   opacity: .8;
   color: white;
 }
+.PizzaOrder button:disabled {
+  opacity: .5;
+  color: white;
+}
