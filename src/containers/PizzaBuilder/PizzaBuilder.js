@@ -7,6 +7,7 @@ import Modal from '../../components/UI/Modal/Modal';
 import PizzaOrder from '../../components/Pizza/PizzaOrder/PizzaOrder';
 
 import axios from '../../axios';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 class PizzaBuilder extends Component {
   state = {
@@ -74,7 +75,7 @@ class PizzaBuilder extends Component {
       );
     }
 
-    let content = <h2>Loading...</h2>;
+    let content = <Spinner />;
     if (this.state.information) {
       content = (
         <div className={classes.PizzaBuilder}>
