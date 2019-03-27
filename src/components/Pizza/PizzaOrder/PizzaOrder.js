@@ -5,7 +5,11 @@ function PizzaOrder(props) {
   const ingredients = Object
     .keys(props.ingredients)
     .map(ingredient => {
-      return <li key={ingredient}><strong>{ingredient}</strong>: {props.ingredients[ingredient]}</li>;
+      return (
+        <li key={ingredient}>
+          <strong>{props.information[ingredient].title}</strong>: {props.ingredients[ingredient]}
+        </li>
+      );
     });
 
   return (

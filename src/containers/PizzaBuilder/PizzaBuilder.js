@@ -6,17 +6,11 @@ import classes from './PizzaBuilder.module.css';
 import Modal from '../../components/UI/Modal/Modal';
 import PizzaOrder from '../../components/Pizza/PizzaOrder/PizzaOrder';
 
-const INGREDIENT_PRICES = {
-  tomato: 5,
-  salami: 5,
-  blackOlive: 2,
-  greenOlive: 2,
-  redPepper: 3,
-  yellowPepper: 3,
-};
+import axios from '../../axios';
 
 class PizzaBuilder extends Component {
   state = {
+    information: null,
     ingredients: {
       tomato: 0,
       salami: 0,
@@ -41,7 +35,7 @@ class PizzaBuilder extends Component {
     
     if (ingredients[ingredient]) {
       ingredients[ingredient]--;
-      price -= INGREDIENT_PRICES[ingredient];
+      price -= this.state.information[ingredient].price;
     }
 
     this.setState({ ingredients, price });
@@ -52,35 +46,57 @@ class PizzaBuilder extends Component {
     let price = this.state.price;
 
     ingredients[ingredient]++;
-    // price = price + INGREDIENT_PRICES[ingredient];
-    price += INGREDIENT_PRICES[ingredient];
+    price += this.state.information[ingredient].price;
 
     this.setState({ ingredients, price });
   }
 
-  render() {
-    return (
-      <div className={classes.PizzaBuilder}>
-        <PizzaPreview
-          price={this.state.price}
-          ingredients={this.state.ingredients} />
-        <PizzaControls
-          ingredients={this.state.ingredients}
-          moreHandler={this.moreHandler}
-          lessHandler={this.lessHandler}
-          orderingToggleHandler={this.orderingToggleHandler} />
+  componentDidMount() {
+    axios.get('information.json')
+      .then(response => {
+        this.setState({
+          information: response.data
+        });
+      })
+      .catch(error => {});
+  }
 
-        <Modal
-          open={this.state.ordering}
-          toggleHandler={this.orderingToggleHandler}>
-          <PizzaOrder
-            ingredients={this.state.ingredients}
+  render() {
+    let modalContent = null;
+    if (this.state.ordering) {
+      modalContent = (
+        <PizzaOrder
+          information={this.state.information}
+          ingredients={this.state.ingredients}
+          price={this.state.price}
+          checkoutHandler={this.orderingToggleHandler}
+          cancelHandler={this.orderingToggleHandler} />
+      );
+    }
+
+    let content = <h2>Loading...</h2>;
+    if (this.state.information) {
+      content = (
+        <div className={classes.PizzaBuilder}>
+          <PizzaPreview
             price={this.state.price}
-            checkoutHandler={this.orderingToggleHandler}
-            cancelHandler={this.orderingToggleHandler} />
-        </Modal>
-      </div>
-    );
+            ingredients={this.state.ingredients} />
+          <PizzaControls
+            ingredients={this.state.ingredients}
+            moreHandler={this.moreHandler}
+            lessHandler={this.lessHandler}
+            orderingToggleHandler={this.orderingToggleHandler} />
+
+          <Modal
+            open={this.state.ordering}
+            toggleHandler={this.orderingToggleHandler}>
+            {modalContent}
+          </Modal>
+        </div>
+      );
+    }
+
+    return content;
   }
 }
 
