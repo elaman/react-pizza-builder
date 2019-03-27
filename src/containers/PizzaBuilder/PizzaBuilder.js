@@ -22,12 +22,35 @@ class PizzaBuilder extends Component {
     },
     price: 200,
     ordering: false,
+    loading: false,
   }
 
   orderingToggleHandler = () => {
     this.setState({
       ordering: !this.state.ordering
     });
+  }
+  
+  checkoutHandler = () => {
+    this.setState({ loading: true });
+    
+    const order = {
+      ingredients: this.state.ingredients,
+      price: this.state.price,
+      customer: {
+        name: "Elaman",
+        phone: "0 700 111 222",
+        address: "Somewhere in Karakol"
+      },
+    };
+
+    axios.post('orders.json', order)
+      .then(response => {
+        this.setState({ loading: false, ordering: false });
+      })
+      .catch(error => {
+        this.setState({ loading: false, ordering: false });
+      });
   }
 
   lessHandler = (ingredient) => {
@@ -63,14 +86,14 @@ class PizzaBuilder extends Component {
   }
 
   render() {
-    let modalContent = null;
-    if (this.state.ordering) {
+    let modalContent = <Spinner />;
+    if (this.state.ordering && !this.state.loading) {
       modalContent = (
         <PizzaOrder
           information={this.state.information}
           ingredients={this.state.ingredients}
           price={this.state.price}
-          checkoutHandler={this.orderingToggleHandler}
+          checkoutHandler={this.checkoutHandler}
           cancelHandler={this.orderingToggleHandler} />
       );
     }
