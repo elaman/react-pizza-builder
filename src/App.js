@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import Layout from './containers/Layout/Layout';
 import PizzaBuilder from './containers/PizzaBuilder/PizzaBuilder';
@@ -8,9 +9,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Layout>
-          <PizzaBuilder />
-        </Layout>
+        <BrowserRouter>
+          <Layout>
+            <Route path="/" component={PizzaBuilder} exact />
+            <Route path="/checkout" component={Checkout} />
+          </Layout>
+        </BrowserRouter>
       </div>
     );
   }

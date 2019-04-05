@@ -32,25 +32,41 @@ class PizzaBuilder extends Component {
   }
   
   checkoutHandler = () => {
-    this.setState({ loading: true });
+    // this.setState({ loading: true });
     
-    const order = {
-      ingredients: this.state.ingredients,
-      price: this.state.price,
-      customer: {
-        name: "Elaman",
-        phone: "0 700 111 222",
-        address: "Somewhere in Karakol"
-      },
-    };
+    // const order = {
+    //   ingredients: this.state.ingredients,
+    //   price: this.state.price,
+    //   customer: {
+    //     name: "Elaman",
+    //     phone: "0 700 111 222",
+    //     address: "Somewhere in Karakol"
+    //   },
+    // };
 
-    axios.post('orders.json', order)
-      .then(response => {
-        this.setState({ loading: false, ordering: false });
-      })
-      .catch(error => {
-        this.setState({ loading: false, ordering: false });
-      });
+    // axios.post('orders.json', order)
+    //   .then(response => {
+    //     this.setState({ loading: false, ordering: false });
+    //   })
+    //   .catch(error => {
+    //     this.setState({ loading: false, ordering: false });
+    //   });
+    const query = [];
+
+    for (let ingredient in this.state.ingredients) {
+      if (this.state.ingredients[ingredient] > 0) {
+        const name = encodeURIComponent(ingredient);
+        const value = encodeURIComponent(this.state.ingredients[ingredient]);
+  
+        query.push(`${name}=${value}`);
+      }
+    }
+    query.push(`price=${encodeURIComponent(this.state.price)}`);
+
+    this.props.history.push({
+      pathname: '/checkout',
+      search: `?${query.join('&')}`
+    });
   }
 
   lessHandler = (ingredient) => {
