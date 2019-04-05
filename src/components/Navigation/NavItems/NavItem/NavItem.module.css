@@ -8,7 +8,7 @@
 
 .NavItem a:hover,
 .NavItem a:active,
-.NavItem a.active {
+.NavItem a.Active {
   border-color: white;
   background-color: rgba(0, 0, 0, .1);
 }

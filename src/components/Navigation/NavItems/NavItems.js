@@ -6,7 +6,6 @@ function NavItems(props) {
   return (
     <ul className={classes.NavItems}>
       <NavItem url="/">Pizza Builder</NavItem>
-      <NavItem url="/">Checkout</NavItem>
     </ul>
   );
 }
