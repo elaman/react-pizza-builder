@@ -1,0 +1,10 @@
+.Checkout {
+  display: flex;
+  flex-flow: column;
+}
+
+@media (min-width: 500px) {
+  .Checkout {
+    flex-flow: row;
+  }
+}
