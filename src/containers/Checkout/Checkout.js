@@ -1,14 +1,21 @@
-import React, { Component } from 'react';
-import classes from './Checkout.module.css';
+import React, { Component } from "react";
+import classes from "./Checkout.module.css";
 
-import PizzaPreview from '../../components/Pizza/PizzaPreview/PizzaPreview';
-import CheckoutForm from '../../components/Checkout/CheckoutForm/CheckoutForm';
+import PizzaPreview from "../../components/Pizza/PizzaPreview/PizzaPreview";
+import CheckoutForm from "../../components/Checkout/CheckoutForm/CheckoutForm";
+
+import axios from "../../axios";
 
 class Checkout extends Component {
   state = {
     ingredients: {},
-    price: 0
-  }
+    price: 0,
+    customer: {
+      name: "",
+      phone: "",
+      address: ""
+    }
+  };
 
   componentWillMount() {
     const query = new URLSearchParams(this.props.location.search);
@@ -17,10 +24,9 @@ class Checkout extends Component {
 
     // [['ingredient', 'count'], ['price', '0']]
     for (let parameter of query.entries()) {
-      if (parameter[0] === 'price') {
+      if (parameter[0] === "price") {
         price = +parameter[1];
-      }
-      else {
+      } else {
         ingredients[parameter[0]] = +parameter[1];
       }
     }
@@ -28,11 +34,54 @@ class Checkout extends Component {
     this.setState({ ingredients, price });
   }
 
+  submitHandler = () => {
+    const order = {
+      ingredients: this.state.ingredients,
+      price: this.state.price,
+      customer: this.state.customer
+    };
+
+    if (order.customer.name.length > 5
+      && order.customer.phone.length > 5
+      && order.customer.address.length > 5) {
+      axios
+        .post("orders.json", order)
+        .then(response => {
+          this.props.history.replace("/");
+        })
+        .catch(error => {
+          this.props.history.replace("/");
+        });
+    }
+    else {
+      alert('Fill all the data!');
+    }
+  };
+
+  cancelHandler = () => {
+    this.props.history.goBack();
+  };
+
+  changeHandler = (field, value) => {
+    const customer = this.state.customer;
+
+    customer[field] = value;
+
+    this.setState({ customer });
+  }
+
   render() {
     return (
       <div className={classes.Checkout}>
-        <PizzaPreview ingredients={this.state.ingredients} price={this.state.price} />
-        <CheckoutForm />
+        <PizzaPreview
+          ingredients={this.state.ingredients}
+          price={this.state.price}
+        />
+        <CheckoutForm
+          submitHandler={this.submitHandler}
+          cancelHandler={this.cancelHandler}
+          changeHandler={this.changeHandler}
+        />
       </div>
     );
   }
