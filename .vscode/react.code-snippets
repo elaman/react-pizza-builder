@@ -1,0 +1,43 @@
+{
+	"Stateless component": {
+		"scope": "javascript",
+		"prefix": "rc",
+		"body": [
+			"import React from 'react';",
+			"import classes from './$1.module.css';",
+			"",
+			"function $1(props) {",
+			"	return (",
+			"		<div className={classes.$1}>",
+			"			$0",
+			"		</div>",
+			"	);",
+			"}",
+			"",
+			"export default $1;"
+		],
+		"description": "React Stateless component"
+	},
+	"Statelfull component": {
+		"scope": "javascript",
+		"prefix": "rsc",
+		"body": [
+			"import React, { Component } from 'react';",
+			"import classes from './$1.module.css';",
+			"",
+			"class $1 extends Component {",
+			"	render() {",
+			"		return (",
+			"			<div className={classes.$1}>",
+			"				$0",
+			"			</div>",
+			"		);",
+			"	}",
+			"}",
+			"",
+			"export default $1;"
+		],
+		"description": "React Statefull component"
+	}
+
+}
