@@ -8,6 +8,7 @@ import PizzaOrder from '../../components/Pizza/PizzaOrder/PizzaOrder';
 
 import axios from '../../axios';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import withErrorHandler from '../../hoc/withErrorHandler';
 
 class PizzaBuilder extends Component {
   state = {
@@ -78,8 +79,7 @@ class PizzaBuilder extends Component {
         this.setState({
           information: response.data
         });
-      })
-      .catch(error => {});
+      });
   }
 
   render() {
@@ -121,4 +121,4 @@ class PizzaBuilder extends Component {
   }
 }
 
-export default PizzaBuilder;
+export default withErrorHandler(PizzaBuilder, axios);

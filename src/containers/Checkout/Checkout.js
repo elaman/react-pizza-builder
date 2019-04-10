@@ -5,6 +5,7 @@ import PizzaPreview from "../../components/Pizza/PizzaPreview/PizzaPreview";
 import CheckoutForm from "../../components/Checkout/CheckoutForm/CheckoutForm";
 
 import axios from "../../axios";
+import withErrorHandler from "../../hoc/withErrorHandler";
 
 class Checkout extends Component {
   state = {
@@ -47,10 +48,9 @@ class Checkout extends Component {
       axios
         .post("orders.json", order)
         .then(response => {
-          this.props.history.replace("/");
-        })
-        .catch(error => {
-          this.props.history.replace("/");
+          if (response.status === 200) {
+            this.props.history.replace('/orders');
+          }
         });
     }
     else {
@@ -87,4 +87,4 @@ class Checkout extends Component {
   }
 }
 
-export default Checkout;
+export default withErrorHandler(Checkout, axios);
