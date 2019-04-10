@@ -1,0 +1,13 @@
+.Order {
+  display: flex;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+  margin-bottom: 15px;
+  padding: 0 25px 25px;
+  flex-wrap: wrap;
+}
+.OrderPrice {
+  margin-right: 25px;
+}
+.OrderCustomer {
+  margin-right: 25px;
+}
