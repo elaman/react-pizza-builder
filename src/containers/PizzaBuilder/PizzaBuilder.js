@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import PizzaPreview from '../../components/Pizza/PizzaPreview/PizzaPreview';
 import PizzaControls from '../../components/Pizza/PizzaControls/PizzaControls';
 
@@ -13,14 +15,6 @@ import withErrorHandler from '../../hoc/withErrorHandler';
 class PizzaBuilder extends Component {
   state = {
     information: null,
-    ingredients: {
-      tomato: 0,
-      salami: 0,
-      blackOlive: 0,
-      greenOlive: 0,
-      redPepper: 0,
-      yellowPepper: 0,
-    },
     price: 200,
     ordering: false,
     loading: false,
@@ -35,10 +29,10 @@ class PizzaBuilder extends Component {
   checkoutHandler = () => {
     const query = [];
 
-    for (let ingredient in this.state.ingredients) {
-      if (this.state.ingredients[ingredient] > 0) {
+    for (let ingredient in this.props.ingredients) {
+      if (this.props.ingredients[ingredient] > 0) {
         const name = encodeURIComponent(ingredient);
-        const value = encodeURIComponent(this.state.ingredients[ingredient]);
+        const value = encodeURIComponent(this.props.ingredients[ingredient]);
   
         query.push(`${name}=${value}`);
       }
@@ -52,7 +46,7 @@ class PizzaBuilder extends Component {
   }
 
   lessHandler = (ingredient) => {
-    const ingredients = {...this.state.ingredients};
+    const ingredients = {...this.props.ingredients};
     let price = this.state.price;
     
     if (ingredients[ingredient]) {
@@ -60,17 +54,19 @@ class PizzaBuilder extends Component {
       price -= this.state.information[ingredient].price;
     }
 
-    this.setState({ ingredients, price });
+    this.props.onRemoveIngredient(ingredient);
+    this.setState({ price });
   }
 
   moreHandler = (ingredient) => {
-    const ingredients = {...this.state.ingredients};
+    const ingredients = {...this.props.ingredients};
     let price = this.state.price;
 
     ingredients[ingredient]++;
     price += this.state.information[ingredient].price;
 
-    this.setState({ ingredients, price });
+    this.props.onAddIngredient(ingredient);
+    this.setState({ price });
   }
 
   componentDidMount() {
@@ -88,7 +84,7 @@ class PizzaBuilder extends Component {
       modalContent = (
         <PizzaOrder
           information={this.state.information}
-          ingredients={this.state.ingredients}
+          ingredients={this.props.ingredients}
           price={this.state.price}
           checkoutHandler={this.checkoutHandler}
           cancelHandler={this.orderingToggleHandler} />
@@ -101,9 +97,9 @@ class PizzaBuilder extends Component {
         <div className={classes.PizzaBuilder}>
           <PizzaPreview
             price={this.state.price}
-            ingredients={this.state.ingredients} />
+            ingredients={this.props.ingredients} />
           <PizzaControls
-            ingredients={this.state.ingredients}
+            ingredients={this.props.ingredients}
             moreHandler={this.moreHandler}
             lessHandler={this.lessHandler}
             orderingToggleHandler={this.orderingToggleHandler} />
@@ -121,4 +117,19 @@ class PizzaBuilder extends Component {
   }
 }
 
-export default withErrorHandler(PizzaBuilder, axios);
+const mapStateToProps = state => {
+  return {
+    // this.props.ingredients: reducer.js/state.ingredients
+    ingredients: state.ingredients
+  };
+}
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddIngredient: (ingredient) => dispatch({ type: 'ADD_INGREDIENT', ingredient }),
+    onRemoveIngredient: (ingredient) => dispatch({ type: 'REMOVE_INGREDIENT', ingredient })
+  }
+}
+
+export default connect(
+  mapStateToProps, mapDispatchToProps
+)(withErrorHandler(PizzaBuilder, axios));
