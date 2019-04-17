@@ -15,7 +15,6 @@ import withErrorHandler from '../../hoc/withErrorHandler';
 class PizzaBuilder extends Component {
   state = {
     information: null,
-    price: 200,
     ordering: false,
     loading: false,
   }
@@ -37,36 +36,12 @@ class PizzaBuilder extends Component {
         query.push(`${name}=${value}`);
       }
     }
-    query.push(`price=${encodeURIComponent(this.state.price)}`);
+    query.push(`price=${encodeURIComponent(this.props.price)}`);
 
     this.props.history.push({
       pathname: '/checkout',
       search: `?${query.join('&')}`
     });
-  }
-
-  lessHandler = (ingredient) => {
-    const ingredients = {...this.props.ingredients};
-    let price = this.state.price;
-    
-    if (ingredients[ingredient]) {
-      ingredients[ingredient]--;
-      price -= this.state.information[ingredient].price;
-    }
-
-    this.props.onRemoveIngredient(ingredient);
-    this.setState({ price });
-  }
-
-  moreHandler = (ingredient) => {
-    const ingredients = {...this.props.ingredients};
-    let price = this.state.price;
-
-    ingredients[ingredient]++;
-    price += this.state.information[ingredient].price;
-
-    this.props.onAddIngredient(ingredient);
-    this.setState({ price });
   }
 
   componentDidMount() {
@@ -85,7 +60,7 @@ class PizzaBuilder extends Component {
         <PizzaOrder
           information={this.state.information}
           ingredients={this.props.ingredients}
-          price={this.state.price}
+          price={this.props.price}
           checkoutHandler={this.checkoutHandler}
           cancelHandler={this.orderingToggleHandler} />
       );
@@ -96,12 +71,11 @@ class PizzaBuilder extends Component {
       content = (
         <div className={classes.PizzaBuilder}>
           <PizzaPreview
-            price={this.state.price}
+            price={this.props.price}
             ingredients={this.props.ingredients} />
           <PizzaControls
             ingredients={this.props.ingredients}
-            moreHandler={this.moreHandler}
-            lessHandler={this.lessHandler}
+            information={this.state.information}
             orderingToggleHandler={this.orderingToggleHandler} />
 
           <Modal
@@ -120,16 +94,11 @@ class PizzaBuilder extends Component {
 const mapStateToProps = state => {
   return {
     // this.props.ingredients: reducer.js/state.ingredients
-    ingredients: state.ingredients
+    ingredients: state.ingredients,
+    price: state.price
   };
-}
-const mapDispatchToProps = dispatch => {
-  return {
-    onAddIngredient: (ingredient) => dispatch({ type: 'ADD_INGREDIENT', ingredient }),
-    onRemoveIngredient: (ingredient) => dispatch({ type: 'REMOVE_INGREDIENT', ingredient })
-  }
 }
 
 export default connect(
-  mapStateToProps, mapDispatchToProps
+  mapStateToProps, null
 )(withErrorHandler(PizzaBuilder, axios));

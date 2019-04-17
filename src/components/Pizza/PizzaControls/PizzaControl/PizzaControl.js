@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import classes from './PizzaControl.module.css';
 
 import PizzaIngredient from '../../PizzaPreview/PizzaIngredient/PizzaIngredient';
@@ -9,14 +10,21 @@ function PizzaControl(props) {
       <button
         className={classes.Less}
         disabled={!props.count}
-        onClick={() => props.lessHandler(props.ingredient)}></button>
+        onClick={() => props.onRemoveIngredient(props.ingredient, props.information)}></button>
       <PizzaIngredient type={props.ingredient} />
       <button
         className={classes.More}
         disabled={props.count >= 20}
-        onClick={() => props.moreHandler(props.ingredient)}></button>
+        onClick={() => props.onAddIngredient(props.ingredient, props.information)}></button>
     </div>
   );
 }
 
-export default PizzaControl;
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddIngredient: (ingredient, information) => dispatch({ type: 'ADD_INGREDIENT', ingredient, information }),
+    onRemoveIngredient: (ingredient, information) => dispatch({ type: 'REMOVE_INGREDIENT', ingredient, information })
+  }
+}
+
+export default connect(null, mapDispatchToProps)(PizzaControl);

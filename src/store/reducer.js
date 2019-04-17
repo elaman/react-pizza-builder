@@ -18,16 +18,18 @@ const reducer = (state = initialState, action) => {
         ingredients: {
           ...state.ingredients,
           [action.ingredient]: state.ingredients[action.ingredient] + 1
-        }
+        },
+        price: state.price + action.information[action.ingredient].price
       };
 
     case 'REMOVE_INGREDIENT':
       const newState = { ...state };
       newState.ingredients = { ...state.ingredients };
       newState.ingredients[action.ingredient] = state.ingredients[action.ingredient] - 1;
+      newState.price = state.price - action.information[action.ingredient].price;
 
       return newState;
-      
+
     default:
       return { ...state };
   }

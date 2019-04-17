@@ -8,10 +8,9 @@ function PizzaControls(props) {
     .map(ingredient => {
       return <PizzaControl
         key={ingredient}
+        information={props.information}
         ingredient={ingredient}
-        count={props.ingredients[ingredient]}
-        lessHandler={props.lessHandler}
-        moreHandler={props.moreHandler} />;
+        count={props.ingredients[ingredient]} />;
     });
 
   const ingredientCount = Object
